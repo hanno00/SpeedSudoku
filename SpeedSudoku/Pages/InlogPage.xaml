@@ -1,0 +1,38 @@
+﻿<Page x:Class="WPFTraining.Pages.InlogPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFTraining.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="1000"
+      Title="InlogPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="20" Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Welcome to 1v1 Sudoku!" HorizontalAlignment="Center" FontSize="64" Grid.Row="0" Grid.Column="0"/>
+            <TextBlock Text="Insert username:" HorizontalAlignment="Center" FontSize="32" Grid.Row="1" Grid.Column="0"/>
+            <TextBox x:Name="usernameTextBox" Margin="0,10,0,0" HorizontalAlignment="Center" Grid.Row="2" Width="200"></TextBox>
+            <Button x:Name="submitUsernameButton" Content="Start the game!" FontSize="36" HorizontalAlignment="Center" Grid.Row="3" Height="80" Width="300" Margin="10" Click="SubmitUsernameButton_Click"></Button>
+        </Grid>
+    </Grid>
+</Page>
