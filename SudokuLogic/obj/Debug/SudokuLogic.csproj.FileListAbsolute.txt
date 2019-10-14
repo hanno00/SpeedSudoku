@@ -1,0 +1,10 @@
+C:\Users\yoram\source\repos\SudokuLogic\bin\Debug\SudokuLogic.exe.config
+C:\Users\yoram\source\repos\SudokuLogic\bin\Debug\SudokuLogic.exe
+C:\Users\yoram\source\repos\SudokuLogic\bin\Debug\SudokuLogic.pdb
+C:\Users\yoram\source\repos\SudokuLogic\obj\Debug\SudokuLogic.csprojAssemblyReference.cache
+C:\Users\yoram\source\repos\SudokuLogic\obj\Debug\SudokuLogic.csproj.CoreCompileInputs.cache
+C:\Users\yoram\source\repos\SudokuLogic\obj\Debug\SudokuLogic.exe
+C:\Users\yoram\source\repos\SudokuLogic\obj\Debug\SudokuLogic.pdb
+C:\Users\yoram\source\repos\SudokuLogic\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yoram\source\repos\SudokuLogic\bin\Debug\Newtonsoft.Json.xml
+C:\Users\yoram\source\repos\SudokuLogic\obj\Debug\SudokuLogic.csproj.CopyComplete
