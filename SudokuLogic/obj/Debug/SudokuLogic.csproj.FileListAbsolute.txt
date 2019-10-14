@@ -8,3 +8,12 @@ C:\Users\yoram\source\repos\SudokuLogic\obj\Debug\SudokuLogic.pdb
 C:\Users\yoram\source\repos\SudokuLogic\bin\Debug\Newtonsoft.Json.dll
 C:\Users\yoram\source\repos\SudokuLogic\bin\Debug\Newtonsoft.Json.xml
 C:\Users\yoram\source\repos\SudokuLogic\obj\Debug\SudokuLogic.csproj.CopyComplete
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\bin\Debug\SudokuLogic.exe.config
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\bin\Debug\SudokuLogic.exe
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\bin\Debug\SudokuLogic.pdb
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\obj\Debug\SudokuLogic.csprojAssemblyReference.cache
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\obj\Debug\SudokuLogic.csproj.CopyComplete
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\obj\Debug\SudokuLogic.exe
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\obj\Debug\SudokuLogic.pdb

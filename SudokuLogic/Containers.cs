@@ -10,30 +10,8 @@ namespace SudokuLogic
     public class Row
     { 
         public int[] rowNum { get; set; }
-        public Row(bool fourByFour)
-        {
-            if(fourByFour)
-            {
-                this.rowNum = new int[4];
-            }
-            else
-            {
-                this.rowNum = new int[6];
-            }
-        }
 
-        public Row( bool fourByFour, bool debug) : this(fourByFour: false)
-        {
-            if(debug)
-            {
-                for (int i = 0; i < rowNum.Length; i++)
-                {
-                    rowNum[i] = i + 1;
-                }
-            }
-        }
-
-        public Row(bool fourByFour, int[] entries) : this(false)
+        public Row(int[] entries) 
         {
             this.rowNum = entries;
         }
@@ -58,38 +36,29 @@ namespace SudokuLogic
         }
     }
 
+    [Serializable]
     public class NumberGrid
     {
-        public int ID { get; set; }
         public Row[] completeGrid { get; set; }
         public int gridSize { get; set; }
-        public NumberGrid(bool fourByFour)
+        public NumberGrid()
         {
-            if (fourByFour)
-            {
-                this.gridSize = 4;
-            }
-            else
-            {
-                this.gridSize = 6;
-            }
+            this.gridSize = 4;
 
             this.completeGrid = new Row[this.gridSize];
         }
 
-        public NumberGrid(bool fourByFour, int id)
+        public NumberGrid(int[] data)
         {
-            this.ID = id;
-            if (fourByFour)
-            {
+
+            if (data.Length == 16)
                 this.gridSize = 4;
-            }
             else
-            {
                 this.gridSize = 6;
-            }
 
             this.completeGrid = new Row[this.gridSize];
+
+            ConvertDataToLines(data, completeGrid);
         }
 
         public override string ToString()
@@ -101,6 +70,17 @@ namespace SudokuLogic
                 s += r.ToString() + "\n";
             }
             return s;
+        }
+
+        public void ConvertDataToLines(int[] data, Row[] rowData)
+        {
+            int stepSize = (data.Length == 16) ? 4 : 6;
+
+            int i = 0;
+            while (i != data.Length) { 
+                rowData[i/stepSize] = new Row(Logic.SubArray<int>(data, i, stepSize));
+                i += stepSize;
+            }
         }
     }
 

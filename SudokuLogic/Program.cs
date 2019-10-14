@@ -11,32 +11,38 @@ namespace SudokuLogic
     {
         static void Main(string[] args)
         {
+
+            //bool fourByFour = false;
+            NumberGrid g = new NumberGrid(new int[] { 1, 3, 2, 4, 2, 4, 1, 3, 3, 1, 4, 2, 4, 2, 3, 1 });
             
-            bool fourByFour = false;
-            NumberGrid g = new NumberGrid(fourByFour);
 
-            g.completeGrid[0] = new Row(fourByFour, new int[] { 2, 3, 5, 6, 1, 4 });
-            g.completeGrid[1] = new Row(fourByFour, new int[] { 1, 4, 6, 5, 2, 3 });
-            g.completeGrid[2] = new Row(fourByFour, new int[] { 6, 1, 2, 4, 3, 5 });
-            g.completeGrid[3] = new Row(fourByFour, new int[] { 3, 5, 4, 2, 6, 1 });
-            g.completeGrid[4] = new Row(fourByFour, new int[] { 5, 2, 3, 1, 4, 6 });
-            g.completeGrid[5] = new Row(fourByFour, new int[] { 4, 6, 1, 3, 5, 2 });
+            //g.completeGrid[0] = new Row(new int[] { 2, 3, 5, 6, 1, 4 });
+            //g.completeGrid[1] = new Row(new int[] { 1, 4, 6, 5, 2, 3 });
+            //g.completeGrid[2] = new Row(new int[] { 6, 1, 2, 4, 3, 5 });
+            //g.completeGrid[3] = new Row(new int[] { 3, 5, 4, 2, 6, 1 });
+            //g.completeGrid[4] = new Row(new int[] { 5, 2, 3, 1, 4, 6 });
+            //g.completeGrid[5] = new Row(new int[] { 4, 6, 1, 3, 5, 2 });
 
-            //g.completeGrid[0] = new Row(fourByFour, new int[] { 1, 3, 2, 4 });
-            //g.completeGrid[1] = new Row(fourByFour, new int[] { 2, 4, 1, 3 });
-            //g.completeGrid[2] = new Row(fourByFour, new int[] { 3, 1, 4, 2 });
-            //g.completeGrid[3] = new Row(fourByFour, new int[] { 4, 2, 3, 1 });
+            //g.completeGrid[0] = new Row(new int[] { 1, 3, 2, 4 });
+            //g.completeGrid[1] = new Row(new int[] { 2, 4, 1, 3 });
+            //g.completeGrid[2] = new Row(new int[] { 3, 1, 4, 2 });
+            //g.completeGrid[3] = new Row(new int[] { 4, 2, 3, 1 });
 
-            Console.WriteLine(g);
+            //Console.WriteLine(g);
 
-            Console.WriteLine(Logic.checkCompleteGrid(g, fourByFour) ? $"Grid is correct!" : $"Grid is incorrect!");
-            
-            SudokuWriter s = new SudokuWriter();
-            s.createJsonObject();
-            Console.WriteLine(s.JsonObject);
-            s.addSudoku6(g);
-            Console.WriteLine(s.JsonObject);
-            
+            //Console.WriteLine(Logic.checkCompleteGrid(g) ? $"Grid is correct!" : $"Grid is incorrect!");
+
+            //SudokuWriter s = new SudokuWriter();
+            //s.createJsonObject();
+            //Console.WriteLine(s.JsonObject);
+            //s.addSudoku6(g);
+            //Console.WriteLine(s.JsonObject);
+
+            SudokuReader sr = new SudokuReader(@"C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\testJson.json");
+            NumberGrid g2;
+            sr.SudokuDictionary6.TryGetValue(1, out g2);
+            Console.WriteLine(g2);
+            Console.WriteLine(Logic.checkCompleteGrid(g2));
             Console.ReadKey();
         }
     }
@@ -172,16 +178,13 @@ namespace SudokuLogic
             return Check(entries); //ez pz lemon squeezy
         }
 
-        public static bool checkCompleteGrid(NumberGrid g, bool fourByFour)
+        public static bool checkCompleteGrid(NumberGrid g)
         {
             bool[] completeRowCheck = new bool[g.gridSize];
             bool[] completeSmallGridCheck = new bool[g.gridSize];
-            //int[] locations = new int[] { 9, 10, 12, 17, 18, 20 };
-            int[] locations = fourByFour ? new int[] { 9, 10, 17, 18 } : new int[] { 9, 10, 12, 17, 18, 20};
-            //foreach(Row r in g.completeGrid)
-            //{
-            //    checkRow(r, g);
-            //}
+
+            int[] locations = (g.gridSize == 4) ? new int[] { 9, 10, 17, 18 } : new int[] { 9, 10, 12, 17, 18, 20};
+
 
             for (int i = 0; i < g.gridSize; i++)
             {
