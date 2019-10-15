@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpeedSudoku.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace SpeedSudoku
 
         public void switchToSudoku()
         {
-            switchContent(new SudokuPage());
+            switchContent(new LobbyPage());
         }
 
         public void switchContent(Page page)
