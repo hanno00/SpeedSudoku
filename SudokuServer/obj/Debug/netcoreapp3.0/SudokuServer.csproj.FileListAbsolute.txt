@@ -1,0 +1,17 @@
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\SudokuServer.exe
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\SudokuServer.deps.json
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\SudokuServer.runtimeconfig.json
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\SudokuServer.runtimeconfig.dev.json
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\SudokuServer.dll
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\SudokuServer.pdb
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\SudokuLogic.exe
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\SudokuLogic.pdb
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\SudokuLogic.exe.config
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\bin\Debug\netcoreapp3.0\Newtonsoft.Json.xml
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\obj\Debug\netcoreapp3.0\SudokuServer.csprojAssemblyReference.cache
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\obj\Debug\netcoreapp3.0\SudokuServer.AssemblyInfoInputs.cache
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\obj\Debug\netcoreapp3.0\SudokuServer.AssemblyInfo.cs
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\obj\Debug\netcoreapp3.0\SudokuServer.csproj.CopyComplete
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\obj\Debug\netcoreapp3.0\SudokuServer.dll
+C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuServer\obj\Debug\netcoreapp3.0\SudokuServer.pdb
