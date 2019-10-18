@@ -64,9 +64,5 @@
         </Grid>
         <TextBlock x:Name="valueTextBlock" Grid.Row="2" Grid.Column="1" Text="Current value:" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button Grid.Column="1" Grid.Row="3" Click="Button_Click" FontSize="60" Content="Submit Sudoku"/>
-
-        <Button Grid.Column="0" Grid.Row="1" Content="Start" Click="StartTimer"/>
-        <Button Grid.Column="0" Grid.Row="2" Content="Stop" Click="StopTimer"/>
-
     </Grid>
 </Page>

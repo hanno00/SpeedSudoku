@@ -24,31 +24,29 @@ namespace SpeedSudoku.Pages
         public LobbyPage()
         {
             InitializeComponent();
-            opponentStatus.Text = "Waiting for opponent";
-            var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
-            timer.Start();
-            timer.Tick += (sender, args) =>
+            //var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
+            //timer.Start();
+            //timer.Tick += (sender, args) =>
+            //{
+            //    timer.Stop();
+            //};
+        }
+
+        private void ReadyButton_Click(object sender, RoutedEventArgs e)
+        {
+            TextBlock text = new TextBlock
             {
-                timer.Stop();
-                opponentStatus.Text = "Opponent Found";
-                TextBlock textBlock = new TextBlock();
-                textBlock.Text = "Ready up! (1/2)";
-                textBlock.FontSize = 50;
-                textBlock.HorizontalAlignment = HorizontalAlignment.Center;
-                textBlock.VerticalAlignment = VerticalAlignment.Center;
-                textBlock.Margin = new Thickness(20);
-
-                Button button = new Button();
-                button.Content = "Ready";
-                button.HorizontalAlignment = HorizontalAlignment.Center;
-                button.VerticalAlignment = VerticalAlignment.Center;
-                button.Height = 100;
-                button.Width = 200;
-                button.FontSize = 45;
-
-                stackPanel.Children.Add(textBlock);
-                stackPanel.Children.Add(button);
+                Text = "You are now ready",
+                FontSize = 30,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(10)
             };
+            stackPanel.Children.Remove((UIElement)stackPanel.FindName("readyButton"));
+            stackPanel.Children.Add(text);
+
         }
     }
+
+
 }
