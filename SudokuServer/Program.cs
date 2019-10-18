@@ -14,31 +14,30 @@ namespace SudokuServer
             // setup server connection
             List<TcpClient> clients;
 
-            TcpListener server = new TcpListener(IPAddress.Loopback, 5555);
+            TcpListener server = new TcpListener(IPAddress.Parse("127.0.0.1"), 5555);
             clients = new List<TcpClient>();
             server.Start();
             Console.WriteLine($">> Server Online at {server.LocalEndpoint}.");
             Console.WriteLine(">> Waiting for 2 connections to start a game.");
-            Console.ReadKey();
             // accept clients
 
-            while (clients.Count < 2)
+            while (clients.Count < 1)
             {
                 clients.Add(server.AcceptTcpClient());
+                Console.WriteLine("Client connected.");
             }
 
             Console.WriteLine(">> Both clients are here, sending sudoku...");
 
             // send the sudoku
 
-            SudokuReader sr = new SudokuReader("C:\\Users\\Yoram\\Desktop\\Programming\\C#\\C# eindopdracht\\SpeedSudoku\\SudokuLogic\\testJson.json");
+            SudokuReader sr = new SudokuReader("C:\\testJson.json");
             NumberGrid gridToSend = sr.getRandomSudoku(4);
-            byte[] gridBytes = System.Text.Encoding.Unicode.GetBytes(gridToSend.ToString().ToCharArray());
+            string sudoku = gridToSend.ToString();
 
             foreach (var client in clients)
             {
-                string sudokuString = "";
-                sendToClient(client, sudokuString);
+                sendToClient(client, sudoku);
             }
 
             // wait for clients to send it back
@@ -66,7 +65,11 @@ namespace SudokuServer
 
         private static void sendToClient(TcpClient client, string s)
         {
-            byte[] oMessage = System.Text.Encoding.Unicode.GetBytes(s);
+            Console.WriteLine($"String:{s}");
+            byte[] prependBytes = BitConverter.GetBytes(s.Length);
+            byte[] oMessage = System.Text.Encoding.UTF8.GetBytes(s);
+
+            client.GetStream().Write(prependBytes, 0, prependBytes.Length);
             client.GetStream().Write(oMessage, 0, oMessage.Length);
         }
 

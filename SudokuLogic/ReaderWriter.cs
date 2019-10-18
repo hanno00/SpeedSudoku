@@ -28,7 +28,7 @@ namespace SudokuLogic
         public bool PrintDeserializedFile()
         {
             JsonTextReader result = new JsonTextReader(new StreamReader(FilePath));
-            while(result.Read())
+            while (result.Read())
             {
                 Console.WriteLine(result.Value);
             }
@@ -39,12 +39,11 @@ namespace SudokuLogic
         public bool ConvertFileToDynamics()
         {
             JsonSerializer serializer = new JsonSerializer();
-            
-            this.JsonFileText = serializer.Deserialize<dynamic>(new JsonTextReader(new StreamReader(FilePath)));
 
+            this.JsonFileText = serializer.Deserialize<dynamic>(new JsonTextReader(new StreamReader(FilePath)));
             return true;
         }
-
+       
         private NumberGrid ConvertDataToGrid(string data)
         {
             int[] numbers = new int[data.Length];
@@ -54,7 +53,7 @@ namespace SudokuLogic
             }
 
 
-            return new NumberGrid(numbers); 
+            return new NumberGrid(numbers);
         }
 
         #region Helper Methods
@@ -104,7 +103,7 @@ namespace SudokuLogic
 
         private void PrintSudokuDict(Dictionary<int, NumberGrid> dictionary)
         {
-            foreach(KeyValuePair<int, NumberGrid> kvp in dictionary)
+            foreach (KeyValuePair<int, NumberGrid> kvp in dictionary)
             {
                 Console.WriteLine($"ID = {kvp.Key} \nGrid = \n{kvp.Value}");
             }
@@ -126,8 +125,8 @@ namespace SudokuLogic
                 {
                     new { }
 
-                } ,
-                six = new []
+                },
+                six = new[]
                 {
                     new { }
                 }

@@ -1,0 +1,6 @@
+C:\Users\brand\Documents\GitKraken\SpeedSudoku\SudokuClient\bin\Debug\SudokuClient.exe.config
+C:\Users\brand\Documents\GitKraken\SpeedSudoku\SudokuClient\bin\Debug\SudokuClient.exe
+C:\Users\brand\Documents\GitKraken\SpeedSudoku\SudokuClient\bin\Debug\SudokuClient.pdb
+C:\Users\brand\Documents\GitKraken\SpeedSudoku\SudokuClient\obj\Debug\SudokuClient.csprojAssemblyReference.cache
+C:\Users\brand\Documents\GitKraken\SpeedSudoku\SudokuClient\obj\Debug\SudokuClient.exe
+C:\Users\brand\Documents\GitKraken\SpeedSudoku\SudokuClient\obj\Debug\SudokuClient.pdb
