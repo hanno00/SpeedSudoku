@@ -30,7 +30,7 @@ namespace SpeedSudoku
 
         public void switchToSudoku()
         {
-            switchContent(new LobbyPage());
+            switchContent(new ResultPage());
         }
 
         public void switchContent(Page page)
