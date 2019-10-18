@@ -13,7 +13,9 @@ namespace SudokuServer
         {
             // setup server connection
             List<TcpClient> clients;
-
+            const int bytesize = 1024;
+            string message = "";
+            byte[] buffer = new byte[bytesize];
 
             // create lobby
             TcpListener server = new TcpListener(IPAddress.Loopback, 5555);
@@ -24,18 +26,43 @@ namespace SudokuServer
             Console.ReadKey();
             // accept clients
 
+            while (clients.Count < 2)
+            {
+                clients.Add(server.AcceptTcpClient());
+            }
+
+            Console.WriteLine(">> Both clients are here, sending sudoku...");
 
             // send the sudoku
+
+            foreach (var client in clients)
+            {
+                string sudokuString = "";
+                sendToClient(client, sudokuString);
+            }
 
             // wait for clients to send it back
 
             // check if it's complete and right
+            // Misschien in client doen?
 
             // send back answer
 
-            // notify if game is over
+            foreach (var client in clients)
+            {
+                string winner = "Hypothetische winnaar";
+                sendToClient(client, winner);
+            }
 
             // close sockets
+            server.Stop();
+            clients.Clear();
+        }
+
+        private static void sendToClient(TcpClient client, string s)
+        {
+            byte[] bMessage = System.Text.Encoding.Unicode.GetBytes(s);
+            client.GetStream().Write(bMessage, 0, bMessage.Length);
         }
     }
 }

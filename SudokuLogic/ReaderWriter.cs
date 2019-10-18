@@ -89,6 +89,17 @@ namespace SudokuLogic
             }
         }
 
+        public string GetRandomSudoku4()
+        {
+            
+            return null;
+        }
+
+        public string GetRandomSudoku6()
+        {
+            return null;
+        }
+
         private void PrintSudokuDict(Dictionary<int, NumberGrid> dictionary)
         {
             foreach(KeyValuePair<int, NumberGrid> kvp in dictionary)
