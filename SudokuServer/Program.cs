@@ -13,11 +13,7 @@ namespace SudokuServer
         {
             // setup server connection
             List<TcpClient> clients;
-            const int bytesize = 1024;
-            string message = "";
-            byte[] buffer = new byte[bytesize];
 
-            // create lobby
             TcpListener server = new TcpListener(IPAddress.Loopback, 5555);
             clients = new List<TcpClient>();
             server.Start();
@@ -35,6 +31,10 @@ namespace SudokuServer
 
             // send the sudoku
 
+            SudokuReader sr = new SudokuReader("C:\\Users\\Yoram\\Desktop\\Programming\\C#\\C# eindopdracht\\SpeedSudoku\\SudokuLogic\\testJson.json");
+            NumberGrid gridToSend = sr.getRandomSudoku(4);
+            byte[] gridBytes = System.Text.Encoding.Unicode.GetBytes(gridToSend.ToString().ToCharArray());
+
             foreach (var client in clients)
             {
                 string sudokuString = "";
@@ -42,6 +42,11 @@ namespace SudokuServer
             }
 
             // wait for clients to send it back
+
+            foreach(var client in clients)
+            {
+                receiveMessageFromClient(client);
+            }
 
             // check if it's complete and right
             // Misschien in client doen?
@@ -61,8 +66,31 @@ namespace SudokuServer
 
         private static void sendToClient(TcpClient client, string s)
         {
-            byte[] bMessage = System.Text.Encoding.Unicode.GetBytes(s);
-            client.GetStream().Write(bMessage, 0, bMessage.Length);
+            byte[] oMessage = System.Text.Encoding.Unicode.GetBytes(s);
+            client.GetStream().Write(oMessage, 0, oMessage.Length);
+        }
+
+        private static string receiveMessageFromClient(TcpClient client)
+        {
+            byte[] iMessage = new byte[1024];
+            client.GetStream().Read(iMessage, 0, iMessage.Length);
+            return System.Text.Encoding.Unicode.GetString(iMessage);
+
+           /* Mocht dit hierboven nullChar's hebben, kunnen we ook dit gebruiken. Dit haalt die shite weg
+            
+            
+            string message = System.Text.Encoding.Unicode.GetString(bytes);
+
+            string messageToPrint = null;
+            foreach (var nullChar in message)
+            {
+                if (nullChar != '\0')
+                {
+                    messageToPrint += nullChar;
+                }
+            }
+            return messageToPrint;
+            */
         }
     }
 }

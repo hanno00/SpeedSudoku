@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace SudokuLogic
 {
-    class SudokuReader
+    public class SudokuReader
     {
         public string FilePath { get; set; }
         public dynamic JsonFileText { get; set; }
@@ -89,15 +89,17 @@ namespace SudokuLogic
             }
         }
 
-        public string GetRandomSudoku4()
+        public NumberGrid getRandomSudoku(int size)
         {
-            
-            return null;
+            return (size == 4) ? RandomDictEntry(SudokuDictionary4) : RandomDictEntry(SudokuDictionary6);
         }
 
-        public string GetRandomSudoku6()
+        private static NumberGrid RandomDictEntry(Dictionary<int, NumberGrid> dictionary)
         {
-            return null;
+            List<int> keys = new List<int>(dictionary.Keys);
+            Random r = new Random();
+            int randKey = keys[r.Next(keys.Count)];
+            return dictionary[randKey];
         }
 
         private void PrintSudokuDict(Dictionary<int, NumberGrid> dictionary)

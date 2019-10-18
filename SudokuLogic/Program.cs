@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SudokuLogic
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -47,7 +47,7 @@ namespace SudokuLogic
         }
     }
 
-    static class Logic
+    public static class Logic
     {
 
         public static T[] SubArray<T>(this T[] data, int index, int length)
@@ -59,13 +59,19 @@ namespace SudokuLogic
 
         private static bool Check(int[] gridArray)
         {
+            HashSet<int> checkSet = new HashSet<int>();
+
+            int[] set = (gridArray.Length == 4) ? new int[] { 1, 2, 3, 4 } : new int[] { 1, 2, 3, 4, 5, 6 };
+
+            checkSet.UnionWith(set);
+
             HashSet<int> intSet = new HashSet<int>();
             foreach (int i in gridArray)
             {
                 intSet.Add(i);
             }
 
-            return intSet.Count == gridArray.Length;
+            return intSet.Count == gridArray.Length && intSet.SetEquals(checkSet);
         }
 
         public static bool checkColumn(int column, NumberGrid g)
@@ -196,23 +202,6 @@ namespace SudokuLogic
             int truthCount = 0;
             for (int j = 0; j < g.gridSize; j++)
             {
-                //if (completeRowCheck[j])
-                //{
-                //    Console.WriteLine($"Row {j + 1}: Correct");
-                //}
-                //else
-                //{
-                //    Console.WriteLine($"Row {j + 1}: Incorrect");
-                //}
-
-                //if (completeSmallGridCheck[j])
-                //{
-                //    Console.WriteLine($"Grid {(GridLocation)locations[j]}: Correct");
-                //}
-                //else
-                //{
-                //    Console.WriteLine($"Grid {(GridLocation)locations[j]}: Incorrect");
-                //}
 
                 if (completeRowCheck[j] && completeSmallGridCheck[j])
                 {
