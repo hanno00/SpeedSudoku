@@ -21,7 +21,7 @@ namespace SudokuLogic
             StringBuilder sb = new StringBuilder($"{rowNum[0]} ");
             for(int i = 1; i < rowNum.Length; i++)
             {
-                sb.Append($"{rowNum[i]} ");
+                sb.Append($"{rowNum[i]}");
             }
             return sb.ToString();
         }
@@ -74,7 +74,9 @@ namespace SudokuLogic
 
             foreach(Row r in completeGrid)
             {
-                s += r.ToString() + "\n";
+                foreach (int value in r.rowNum) {
+                    s += value;
+                }
             }
             return s;
         }

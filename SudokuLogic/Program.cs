@@ -40,7 +40,7 @@ namespace SudokuLogic
 
             SudokuReader sr = new SudokuReader(@"C:\Users\Yoram\Desktop\Programming\C#\C# eindopdracht\SpeedSudoku\SudokuLogic\testJson.json");
             NumberGrid g2;
-            sr.SudokuDictionary6.TryGetValue(1, out g2);
+            sr.SudokuDictionary4.TryGetValue(1, out g2);
             Console.WriteLine(g2);
             Console.WriteLine(Logic.checkCompleteGrid(g2));
             Console.ReadKey();

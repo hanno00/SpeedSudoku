@@ -26,13 +26,15 @@ namespace WPFTraining.Pages
         public NumberGrid currentGrid { get; set; }
         public string currentValue { get; set; }
         public Stopwatch stopwatch { get; set; }
-        public SudokuPage6()
+
+        public MainWindow main;
+        public SudokuPage6(int[] values, MainWindow mainWindow)
         {
             InitializeComponent();
-
+            main = mainWindow;
             currentGrid = new NumberGrid(new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 
-            NumberGrid numberGrid = new NumberGrid(new int[] { 3, 0, 1, 0, 2, 4, 2, 6, 4, 0, 1, 3, 4, 1, 5, 0, 6, 2, 0, 3, 2, 1, 0, 5, 5, 2, 6, 4, 3, 1, 1, 4, 3, 2, 5, 6 });
+            NumberGrid numberGrid = new NumberGrid(values);
 
             stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -118,6 +120,11 @@ namespace WPFTraining.Pages
                     ts.Minutes, ts.Seconds,
                     ts.Milliseconds / 10);
                 MessageBox.Show("Je hebt de Sudoku opgelost!\nJe tijd is: " + elapsedTime);
+
+                Application.Current.Dispatcher.Invoke(new Action(() => {
+
+                    main.sendTime(ts);
+                    main.switchToResultPage(); }));
             }
             else
             {

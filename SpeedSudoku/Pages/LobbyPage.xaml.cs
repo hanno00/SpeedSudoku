@@ -21,15 +21,11 @@ namespace SpeedSudoku.Pages
     /// </summary>
     public partial class LobbyPage : Page
     {
-        public LobbyPage()
+        static MainWindow main;
+        public LobbyPage(MainWindow mainwindow)
         {
+            main = mainwindow;
             InitializeComponent();
-            //var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
-            //timer.Start();
-            //timer.Tick += (sender, args) =>
-            //{
-            //    timer.Stop();
-            //};
         }
 
         private void ReadyButton_Click(object sender, RoutedEventArgs e)
@@ -44,7 +40,7 @@ namespace SpeedSudoku.Pages
             };
             stackPanel.Children.Remove((UIElement)stackPanel.FindName("readyButton"));
             stackPanel.Children.Add(text);
-
+            main.sendReady();
         }
     }
 

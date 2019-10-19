@@ -28,9 +28,9 @@ namespace WPFTraining.Pages
             InitializeComponent();
         }
 
-        public void SubmitUsernameButton_Click(object sender, RoutedEventArgs e)
+        public void StartGame_Click(object sender, RoutedEventArgs e)
         {
-            this.main.switchToSudoku();
+            this.main.switchToLobbyPage();
         }
     }
 }

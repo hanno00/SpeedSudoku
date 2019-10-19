@@ -37,19 +37,19 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Border BorderBrush="Black" BorderThickness="0.75" 
+            <Border BorderBrush="Black" BorderThickness="1.5" 
                     Grid.Row="0" Grid.Column="0" 
                     Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Border BorderBrush="Black" BorderThickness="0.75" 
+            <Border BorderBrush="Black" BorderThickness="1.5" 
                     Grid.Row="0" Grid.Column="2" 
                     Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Border BorderBrush="Black" BorderThickness="0.75" 
+            <Border BorderBrush="Black" BorderThickness="1.5" 
                     Grid.Row="2" Grid.Column="2" 
                     Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Border BorderBrush="Black" BorderThickness="0.75" 
+            <Border BorderBrush="Black" BorderThickness="1.5" 
                     Grid.Row="2" Grid.Column="0" 
                     Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Border BorderBrush="Black" BorderThickness="2" 
+            <Border BorderBrush="Black" BorderThickness="4" 
                     Grid.Row="0" Grid.Column="0" 
                     Grid.ColumnSpan="4" Grid.RowSpan="4"/>
         </Grid>

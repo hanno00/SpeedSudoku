@@ -19,8 +19,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel x:Name="stackPanel" Grid.Row="1" Grid.Column="1">
-            <TextBlock x:Name="winStatus" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center">Are you ready?</TextBlock>
+        <StackPanel x:Name="stackPanel" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+            <TextBlock x:Name="winStatus" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </StackPanel>
 
     </Grid>

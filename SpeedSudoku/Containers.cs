@@ -62,6 +62,13 @@ namespace SudokuLogic
             ConvertDataToLines(data, completeGrid);
         }
 
+        public NumberGrid(string dataString) : this(data: dataString.ToCharArray().Select(n => Convert.ToInt32(n)).ToArray())
+        {
+            // Misschien een beetje onduidelijk/lelijk. Maar ik pak hier de andere constructor die met int[] kan omgaan. 
+            // " : this(*dit hier*)" voert meteen de string -> int[] conversion uit met LINQ. 
+            // Scheelt weer code. 
+        }
+
         public override string ToString()
         {
             string s = "";

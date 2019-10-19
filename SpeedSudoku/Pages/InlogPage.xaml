@@ -30,7 +30,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <TextBlock Text="Welcome to 1v1 Sudoku!" HorizontalAlignment="Center" FontSize="64" Grid.Row="0" Grid.Column="0"/>
-            <Button x:Name="submitUsernameButton" Content="Start the game!" FontSize="36" HorizontalAlignment="Center" Grid.Row="3" Height="80" Width="300" Margin="10" Click="SubmitUsernameButton_Click"></Button>
+            <Button x:Name="submitUsernameButton" Content="Start the game!" FontSize="36" HorizontalAlignment="Center" Grid.Row="3" Height="80" Width="300" Margin="10" Click="StartGame_Click"></Button>
         </Grid>
     </Grid>
 </Page>

@@ -21,27 +21,28 @@ namespace SpeedSudoku.Pages
     /// </summary>
     public partial class ResultPage : Page
     {
-        public ResultPage()
+        public MainWindow main;
+        public Button button;
+        public ResultPage(MainWindow mainwindow)
         {
             InitializeComponent();
+            main = mainwindow;
+            button = new Button();
+            button.Height = 50;
+            button.Width = 200;
+            button.Content = "Go Again!";
+            button.FontSize = 20;
+            button.Click += new RoutedEventHandler(Button_Click);
             winStatus.Text = "Waiting for results!";
-            var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
-            timer.Start();
-            timer.Tick += (sender, args) =>
-            {
-                timer.Stop();
-                Random random = new Random();
-                if (random.Next(0, 2) == 1)
-                {
-                    winStatus.Text = "You won!";
-                    winStatus.FontSize = 50;
-                }
-                else {
-                    winStatus.Text = "You lost :(";
-                    winStatus.FontSize = 50;
-                }
 
-            };
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                main.switchToLobbyPage();
+            }));
         }
     }
 }
