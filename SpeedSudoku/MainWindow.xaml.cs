@@ -74,7 +74,7 @@ namespace SpeedSudoku
                 Console.WriteLine("Json\n" + json);
 
                 dynamic deserialized = JsonConvert.DeserializeObject(json);
-
+                Console.WriteLine(deserialized);
                 if (deserialized != null)
                 {
                     switch ((string)deserialized.id)

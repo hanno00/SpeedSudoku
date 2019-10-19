@@ -97,7 +97,7 @@ namespace SudokuLogic
         {
             List<int> keys = new List<int>(dictionary.Keys);
             Random r = new Random();
-            int randKey = keys[r.Next(keys.Count)];
+            int randKey = keys[r.Next(0,keys.Count)];
             return dictionary[randKey];
         }
 
