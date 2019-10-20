@@ -44,16 +44,16 @@ namespace SpeedSudoku
 
             MainFrame.Content = new InlogPage(this);
 
-            client = new TcpClient("127.0.0.1", 5555);
-            stream = client.GetStream();
-
-
-            Thread listenThread = new Thread(() => ListenThread(this, stream));
+            Thread listenThread = new Thread(() => ListenThread(this));
             listenThread.Start();
         }
 
-        static void ListenThread(MainWindow main, NetworkStream stream)
+        static void ListenThread(MainWindow main)
         {
+
+            client = new TcpClient("127.0.0.1", 5555);
+
+            stream = client.GetStream();
 
             while (true)
             {
@@ -100,7 +100,8 @@ namespace SpeedSudoku
                         case "server/sendWinner":
                             if (String.Equals((string)deserialized.data, username))
                             {
-                                Application.Current.Dispatcher.Invoke(new Action(() => { 
+                                Application.Current.Dispatcher.Invoke(new Action(() =>
+                                {
                                     resultPage.winStatus.Text = "You won!";
                                     resultPage.stackPanel.Children.Add(resultPage.button);
 
@@ -108,7 +109,8 @@ namespace SpeedSudoku
                             }
                             else
                             {
-                                Application.Current.Dispatcher.Invoke(new Action(() => { 
+                                Application.Current.Dispatcher.Invoke(new Action(() =>
+                                {
                                     resultPage.winStatus.Text = "You Lost :(";
                                     resultPage.stackPanel.Children.Add(resultPage.button);
                                 }));
@@ -119,6 +121,7 @@ namespace SpeedSudoku
                             break;
                     }
                 }
+
             }
         }
 
