@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SudokuLogic;
 
@@ -16,6 +17,9 @@ namespace SudokuServer
         public static ArrayList playersReady;
         public static Dictionary<string, TimeSpan> playersTime;
         public static int amountOfPlayers = 2;
+        public static int sudokuType = 0;
+
+        public static SudokuReader sudokuReader;
         static void Main(string[] args)
         {
             // setup server connection
@@ -25,6 +29,9 @@ namespace SudokuServer
             TcpListener server = new TcpListener(IPAddress.Parse("127.0.0.1"), 5555);
             clients = new List<TcpClient>();
             server.Start();
+            
+            //Asynchronously setup Reader
+            asyncSetup();
 
             Console.WriteLine($">> Server Online at {server.LocalEndpoint}.");
             Console.WriteLine(">> Waiting for 2 connections to start a game.");
@@ -107,17 +114,29 @@ namespace SudokuServer
             clients.Clear();
         }
 
+        static async void asyncSetup()
+        {
+            // This method runs asynchronously.
+            await Task.Run(() => setupReader());
+        }
+
+        private static void setupReader() {
+             sudokuReader = new SudokuReader("C:\\sudoku.json");
+        }
+
         static public object getRandomSudokuObject()
         {
             Random rand = new Random();
             int value = 4;
-            if (rand.Next(0, 2) != 0)
+            if (sudokuType == 1)
             {
                 value = 6;
             }
-            SudokuReader sr = new SudokuReader("C:\\sudoku.json");
-            NumberGrid gridToSend = sr.getRandomSudoku(value);
+            sudokuType++;
+            sudokuType %= 2;
+            NumberGrid gridToSend = sudokuReader.getRandomSudoku(value);
             string sudoku = gridToSend.ToString();
+            Console.WriteLine(sudoku);
             return new
             {
                 id = "server/sendSudoku",

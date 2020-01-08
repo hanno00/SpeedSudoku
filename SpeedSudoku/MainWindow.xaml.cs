@@ -44,15 +44,19 @@ namespace SpeedSudoku
 
             MainFrame.Content = new InlogPage(this);
 
+            client = new TcpClient();
+            getClient();
+
             Thread listenThread = new Thread(() => ListenThread(this));
             listenThread.Start();
         }
 
+        static async void getClient() {
+            await client.ConnectAsync("127.0.0.1", 5555);
+        } 
+
         static void ListenThread(MainWindow main)
         {
-
-            client = new TcpClient("127.0.0.1", 5555);
-
             stream = client.GetStream();
 
             while (true)
