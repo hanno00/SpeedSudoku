@@ -121,7 +121,8 @@ namespace SudokuServer
         }
 
         private static void setupReader() {
-             sudokuReader = new SudokuReader("C:\\sudoku.json");
+
+            sudokuReader = new SudokuReader("..\\..\\..\\res\\sudoku.json");
         }
 
         static public object getRandomSudokuObject()
